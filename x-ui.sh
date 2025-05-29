@@ -77,7 +77,7 @@ before_show_menu() {
 
 # 安装面板
 install() {
-    bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/main/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/ltgjs/3x-ui/main/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -97,7 +97,7 @@ update() {
         fi
         return 0
     fi
-    bash <(curl -Ls https://raw.githubusercontent.com/MHSanaei/3x-ui/main/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/ltgjs/3x-ui/main/install.sh)
     if [[ $? == 0 ]]; then
         LOGI "更新完成，面板已自动重启"
         before_show_menu
@@ -116,7 +116,7 @@ update_menu() {
         return 0
     fi
 
-    wget -O /usr/bin/x-ui https://raw.githubusercontent.com/MHSanaei/3x-ui/main/x-ui.sh
+    wget -O /usr/bin/x-ui https://raw.githubusercontent.com/ltgjs/3x-ui/main/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
 
@@ -139,7 +139,7 @@ legacy_version() {
         exit 1
     fi
     # 使用指定版本号下载并安装
-    install_command="bash <(curl -Ls \"https://raw.githubusercontent.com/mhsanaei/3x-ui/v$tag_version/install.sh\") v$tag_version"
+    install_command="bash <(curl -Ls \"https://raw.githubusercontent.com/ltgjs/3x-ui/v$tag_version/install.sh\") v$tag_version"
 
     echo "正在下载并安装面板版本 $tag_version ..."
     eval $install_command
@@ -171,7 +171,7 @@ uninstall() {
     echo ""
     echo -e "卸载成功。\n"
     echo "若需重新安装此面板，可使用下方命令："
-    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)${plain}"
+    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/ltgjs/3x-ui/master/install.sh)${plain}"
     echo ""
     # 捕获 SIGTERM 信号
     trap delete_script SIGTERM
@@ -528,7 +528,7 @@ enable_bbr() {
 
 # 升级菜单脚本
 update_shell() {
-    wget -O /usr/bin/x-ui -N https://github.com/MHSanaei/3x-ui/raw/main/x-ui.sh
+    wget -O /usr/bin/x-ui -N https://github.com/ltgjs/3x-ui/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         LOGE "下载脚本失败，请检查机器网络连接"
